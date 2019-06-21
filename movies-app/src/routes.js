@@ -13,12 +13,14 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/home',
       component: 'home',
       resolve: {
-        movies: [
-          'api',
-          function (api) {
-            return api.trendingMovies()
-              .then(response => response.data.results);
-          }]
+        movies: ['api', api => api.trendingMovies()]
+      }
+    })
+    .state('app.details', {
+      url: '/details',
+      component: 'home',
+      resolve: {
+        movies: ['api', api => api.trendingMovies()]
       }
     });
 }

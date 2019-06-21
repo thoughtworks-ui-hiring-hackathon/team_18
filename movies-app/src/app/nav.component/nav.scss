@@ -1,0 +1,14 @@
+.tw-nav {
+  display: flex;
+  flex-direction: row;
+  background-color: gray;
+  a {
+    color: white;
+    text-decoration: none;
+    margin-left: 3em;
+    &:hover {
+      color: #5aadbb;
+    }
+  }
+
+}
