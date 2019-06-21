@@ -1,19 +1,18 @@
 import angular from 'angular';
 import 'angular-mocks';
 
-describe('main component', () => {
+describe('ratings component', () => {
   beforeEach(() => {
     angular
-      .module('app', ['app/main.html']);
+      .module('app', ['app/rating.component/rating.html']);
     angular.mock.module('app');
   });
 
-  it('should render the header, title, techs and footer', angular.mock.inject(($rootScope, $compile) => {
-    const element = $compile('<app>Loading...</app>')($rootScope);
+  it('should render specific number of stars', angular.mock.inject(($rootScope, $compile) => {
+    $rootScope.ratingData = {ctrl: {data: 3}};
+    const element = $compile('<rating data="ratingData"></rating>')($rootScope);
     $rootScope.$digest();
-    expect(element.find('fountain-header').length).toEqual(1);
-    expect(element.find('fountain-title').length).toEqual(1);
-    expect(element.find('fountain-techs').length).toEqual(1);
-    expect(element.find('fountain-footer').length).toEqual(1);
+    console.log(element);
+    expect(element.find('.tw-rating').text().length).toEqual('***');
   }));
 });
