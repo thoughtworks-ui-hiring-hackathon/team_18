@@ -1,8 +1,10 @@
+import {API_KEY} from './api-key';
+
 export const api = [
   '$http',
   function ($http) {
     const defaults = {
-      api_key: '8e324389a8ec73157c366565cc96a207'
+      api_key: API_KEY
     };
     function trendingMovies() {
       return getUrl('/trending/movie/week');
