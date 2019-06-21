@@ -5,10 +5,6 @@ const controller = [
       {
         url: $state.get('app.home').url,
         title: 'Home'
-      },
-      {
-        url: $state.get('app.details').url,
-        title: 'Details'
       }
     ];
   }
