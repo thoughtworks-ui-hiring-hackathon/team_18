@@ -1,8 +1,9 @@
 <div class="tw-movie-card">
-  <img src="{{$ctrl.data.image}}">
+  <img src="{{$ctrl.data.image}}"/>
   <p>{{$ctrl.data.title}}</p>
   <p ng-repeat="g in $ctrl.genre">
     {{g}}
   </p>
   <p>{{$ctrl.data.rating}}</p>
+  <rating data="$ctrl.data.rating"></rating>
 </div>
