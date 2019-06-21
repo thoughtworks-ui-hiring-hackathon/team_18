@@ -10,8 +10,15 @@ export const api = [
       api_key: API_KEY
     };
     function trendingMovies() {
-      return getUrl('/trending/movie/week');
+      return getUrl('/trending/movie/week')
+        .then(response => response.data.results.map(mapToMovieCard));
     }
+
+    function movie(id) {
+      return getUrl(`/movie/${id}`)
+        .then(response => mapToMovieCard(response.data));
+    }
+
     function getUrl(_url) {
       const url = `${BASE_URI}/3${_url}`;
       return $http.get(url, {
@@ -19,11 +26,13 @@ export const api = [
       }).then(result => {
         console.log(`*** ${_url}`, result);
         return result;
-      }).then(response => response.data.results.map(mapToMovieCard));
+      });
     }
+
     return {
       getUrl,
-      trendingMovies
+      trendingMovies,
+      movie
     };
   }];
 
@@ -32,6 +41,8 @@ function mapToMovieCard(movie) {
     title: movie.title,
     genre: movie.genre_ids,
     rating: Math.round(movie.vote_average / 2),
-    image: `${BASE_URI_IMAGE}${movie.poster_path}`
+    image: `${BASE_URI_IMAGE}${movie.poster_path}`,
+    overview: movie.overview,
+    id: movie.id
   };
 }

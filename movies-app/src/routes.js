@@ -17,10 +17,13 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     })
     .state('app.details', {
-      url: '/details',
-      component: 'home',
+      url: '/details?id',
+      component: 'movieDetails',
       resolve: {
-        movies: ['api', api => api.trendingMovies()]
+        movie: [
+          'api', '$stateParams',
+          (api, stateParams) => api.movie(stateParams.id)
+        ]
       }
     });
 }

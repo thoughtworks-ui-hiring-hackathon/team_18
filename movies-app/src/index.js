@@ -8,6 +8,7 @@ import {main} from './app/main';
 import {api} from './app/api.service';
 import {navComponent} from './app/nav.component/nav';
 import {homeComponent} from './app/home.component/home';
+import {movieDetailsComponent} from './app/movie.component/movie';
 import {movieCardComponent} from './app/movie-card.component/movie-card';
 import {ratingComponent} from './app/rating.component/rating';
 
@@ -20,5 +21,6 @@ angular
   .component('app', main)
   .component('nav', navComponent)
   .component('home', homeComponent)
+  .component('movieDetails', movieDetailsComponent)
   .component('movieCard', movieCardComponent)
   .component('rating', ratingComponent);

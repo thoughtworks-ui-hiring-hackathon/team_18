@@ -1,0 +1,12 @@
+<div class="tw-movie-details">
+  <img src="{{$ctrl.movie.image}}"/>
+  <h1>{{$ctrl.movie.title}}</h3>
+  <p>
+    {{$ctrl.movie.overview}}
+  </p>
+  <p ng-repeat="g in $ctrl.genre">
+    {{g}}
+  </p>
+  <p>{{$ctrl.movie.rating}}</p>
+  <rating data="$ctrl.movie.rating"></rating>
+</div>
