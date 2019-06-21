@@ -1,5 +1,3 @@
-import './nav.scss';
-
 const controller = [
   '$state',
   function ($state) {

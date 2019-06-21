@@ -1,4 +1,7 @@
-<h1>Home</h1>
-<p ng-repeat="obj in $ctrl.movies">
-  <movie-card data=obj></movie-card>
-</p>
+<h2>Trending Movies</h2>
+
+<div class='tw-cards-row'>
+  <p ng-repeat="obj in $ctrl.movies">
+    <movie-card data=obj></movie-card>
+  </p>
+</div>

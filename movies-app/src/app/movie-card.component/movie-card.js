@@ -1,5 +1,3 @@
-import './movie-card.scss';
-
 const controller = [
   function () {
   }
